@@ -1,7 +1,7 @@
 
 migrations/
 __init__/
-db.sqlite3/
+db.sqlite3
 env/
 .vscode/
 node_modules/
