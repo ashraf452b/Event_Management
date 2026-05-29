@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+</head>
+<body>
+    <div>
+        <div>
+    {% if messages %}
+    {% for message in messages %}
+        <p class="
+            {% if message.tags == 'success' %}
+                bg-green-100 text-green-700
+            {% endif %}
+            p-2 rounded mt-2
+        ">
+            {{ message }}
+        </p>
+    {% endfor %}
+{% endif %}
+</div>
+
+    <div class="w-1/2 mx-auto mt-8">
+        <form method="POST" class="space-y-6">
+        {% csrf_token %}
+
+        <div>
+            <label class="block mb-2">Name</label>
+            {{ event.name }}
+        </div>
+
+        <div>
+            <label class="block mb-2">Description</label>
+            {{ event.description }}
+        </div>
+        
+        <div>
+            <label class="block mb-2">Date</label>
+            {{ event.date }}
+        </div>
+
+        <div>
+            <label class="block mb-2">Time</label>
+            {{ event.time }}
+        </div>
+
+        <div>
+            <label class="block mb-2">Location</label>
+            {{ event.location }}
+        </div>
+
+        <div>
+            <label class="block mb-2">category</label>
+            {{ event.category }}
+        </div>
+
+        <div>
+            <label class="block mb-2">participants</label>
+            {{ event.participants }}
+        </div>
+
+        <div>
+            <label class="block mb-2">Price</label>
+            {{ event.ticket }}
+        </div>
+
+
+        <button 
+            type="submit"
+            class="p-2 bg-rose-600 text-white rounded-md"
+        >
+            Submit
+        </button>
+
+    </form>
+    </div>
+    </div>
+</body>
+</html>

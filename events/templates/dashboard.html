@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+</head>
+
+
+<body>
+<header class="fixed top-0 left-0 w-full z-50 text-white">
+    
+    <div class="top-bar flex justify-end md:justify-between px-4 md:px-10 bg-black py-2">
+        <div class="hidden md:flex gap-6 text-white text-sm">
+            <div class="flex gap-2 text-white">
+                <span>P</span>
+                <span>+1 (322) 233-3243-434</span>
+            </div>
+            <div class="flex gap-2 text-white">
+                <span>E</span>
+                <span>info@ashraf452b.com</span>
+            </div>
+        </div>
+        <div class="flex gap-3 text-white text-sm">
+            <a href="" class="hover:underline">Sign In</a>
+            <span> | </span>
+            <a href="" class="hover:underline">Sign Up</a>
+        </div>
+    </div>
+
+    <nav class="px-4 md:px-20 py-4 md:py-5 relative bg-[#C53725]">
+        <div class="flex justify-between items-center border-b border-white pb-4">
+            <div class="text-white">
+                <h1 class="text-3xl md:4xl lg:5xl font-black tracking-wider">EVENT.</h1>
+            </div>
+            
+            <button id="menu-btn" class="block md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <div id="menu" class="hidden md:flex absolute md:static top-full left-0 w-full md:w-auto bg-[#DB3B24]/50 md:bg-transparent flex-col md:flex-row gap-4 md:gap-6 text-white font-medium p-6 md:p-0 z-50">
+                <a href="#" class="hover:opacity-80 transition-opacity">Past Event</a>
+                <a href="#" class="hover:opacity-80 transition-opacity">Upcoming Event</a>
+                <a href="#" class="hover:opacity-80 transition-opacity">All Event</a>
+                <a href="#" class="hover:opacity-80 transition-opacity">Search</a>
+                <a href="#" class="hover:opacity-80 transition-opacity">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+<section class="relative w-full min-h-screen bg-cover bg-center text-white pt-[200px] md:pt-[150px] px-4 md:px-20 flex flex-col justify-center items-center" style="background-image: url('{% static 'images/event.jpg' %}');">
+    
+    <div class="absolute inset-0 bg-[#DB3B24]/85"></div>
+
+    <div class="relative z-10 text-center flex flex-col items-center gap-6 w-full">
+        
+        <div>
+            <h1 class="text-3xl md:text-5xl font-bold">Make Your Dream Come True</h1>
+            <h3 class="text-base md:text-xl mt-3">Meet your Favorite Player, sport teams and parties</h3>
+        </div>
+
+        <search class="w-full max-w-2xl mt-4 px-2 md:px-0">
+            <form>
+                <input type="text" placeholder="Search Artist, Team, Venue" class="w-full px-6 py-3 md:py-4 rounded-full bg-transparent border border-white text-white placeholder-white/70 outline-none text-sm md:text-base">
+            </form>
+        </search>
+        
+        <div>
+            <h2 class="text-lg md:text-2xl font-semibold">Dhaka, Bangladesh</h2>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+
+    menuBtn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+    });
+</script>
+
+{% comment %} <a href="/all-events/" class="px-6 py-3 border border-[#DB3B24] text-[#DB3B24] rounded-full font-medium hover:bg-[#DB3B24] hover:text-white transition-colors whitespace-nowrap">
+            SEE ALL UPCOMING EVENTS
+        </a> {% endcomment %}
+
+<main>
+   <div class="bg-[#161616]">
+    <h1 class="text-2xl font-extrabold text-[#F56529] px-6 py-12">| TODAY'S SCHEDULE</h1>
+   </div>
+
+   <!--Up coming events-->
+   <div>
+        <h1 class="text-2xl font-extrabold text-black px-6 py-6">| UPCOMMING EVENTS</h1>
+        <P class="px-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sint, ad ratione illum unde et animi rerum voluptate inventore! Optio fuga blanditiis in consequuntur odit ducimus. Aut neque iste natus aperiam, ea, ipsam ad at inventore, eligendi cupiditate quia ipsa?</P>
+        <section class="max-w-7xl mx-auto px-4 md:px-20 py-16 bg-white text-black">
+    
+    <div class="flex justify-between items-end mb-10">
+        <div>
+            <h2 class="text-3xl font-black tracking-tight">UPCOMING EVENTS</h2>
+            <p class="text-gray-500 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        {% for event in events %}
+        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+            <div class="h-48 bg-gray-200 relative">
+                <div class="absolute top-4 left-4 bg-white text-black px-3 py-1 rounded-md text-center font-bold text-sm">
+                    17 <br> <span class="text-xs font-normal opacity-70">SEP</span>
+                </div>
+            </div>
+            
+            <div class="p-6">
+                <h3 class="text-xl font-bold line-clamp-1">{{ event.title }}</h3>
+                <p class="text-gray-500 text-sm mt-2 line-clamp-2">{{ event.description }}</p>
+                <div class="mt-4 pt-4 border-t border-gray-200 flex justify-between items-center text-sm font-semibold">
+                    <span class="text-gray-600">Dhaka, Bangladesh</span>
+                    <span class="text-[#DB3B24]">$5.00</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</section>
+   </div>
+</main>
+
+
+
+<footer>
+    
+</footer>
+</body>
+</html>
