@@ -6,20 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
+<body class="bg-white">
 
-<body>
 <header class="fixed top-0 left-0 w-full z-50 text-white">
-    
     <div class="top-bar flex justify-end md:justify-between px-4 md:px-10 bg-black py-2">
         <div class="hidden md:flex gap-6 text-white text-sm">
             <div class="flex gap-2 text-white">
-                <span>P</span>
-                <span>+1 (322) 233-3243-434</span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                        <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+                <span>+8801772406799</span>
             </div>
             <div class="flex gap-2 text-white">
-                <span>E</span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                        <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+                        <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
+                    </svg>
+                </span>
                 <span>info@ashraf452b.com</span>
             </div>
         </div>
@@ -42,42 +55,284 @@
                 </svg>
             </button>
 
-            <div id="menu" class="hidden md:flex absolute md:static top-full left-0 w-full md:w-auto bg-[#DB3B24]/50 md:bg-transparent flex-col md:flex-row gap-4 md:gap-6 text-white font-medium p-6 md:p-0 z-50">
+            <div id="menu" class="hidden md:flex absolute md:static top-full left-0 w-full md:w-auto bg-[#DB3B24]/95 md:bg-transparent flex-col md:flex-row gap-4 md:gap-6 text-white font-medium p-6 md:p-0 z-50">
                 <a href="#" class="hover:opacity-80 transition-opacity">Past Event</a>
-                <a href="#" class="hover:opacity-80 transition-opacity">Upcoming Event</a>
-                <a href="#" class="hover:opacity-80 transition-opacity">All Event</a>
-                <a href="#" class="hover:opacity-80 transition-opacity">Search</a>
-                <a href="#" class="hover:opacity-80 transition-opacity">Contact</a>
+                <a href="#upcoming" class="hover:opacity-80 transition-opacity">Upcoming Event</a>
+                <a href="/all-events/" class="hover:opacity-80 transition-opacity">All Event</a>
+                <a href="#search-section" class="hover:opacity-80 transition-opacity">Search</a>
+                <a href="#contact-section" class="hover:opacity-80 transition-opacity">Contact</a>
             </div>
         </div>
     </nav>
-    
 </header>
 
-<section class="relative w-full min-h-screen bg-cover bg-center text-white pt-[200px] md:pt-[150px] px-4 md:px-20 flex flex-col justify-center items-center" style="background-image: url('{% static 'images/event.jpg' %}');">
+
+<section id="search-section" class="scroll-mt-32 relative w-full min-h-screen bg-cover bg-center text-white pt-[200px] md:pt-[150px] px-4 md:px-20 flex flex-col justify-center items-center" style="background-image: url('{% static 'images/event.jpg' %}');">
     
     <div class="absolute inset-0 bg-[#DB3B24]/85"></div>
 
     <div class="relative z-10 text-center flex flex-col items-center gap-6 w-full">
-        
         <div>
             <h1 class="text-3xl md:text-5xl font-bold">Make Your Dream Come True</h1>
             <h3 class="text-base md:text-xl mt-3">Meet your Favorite Player, sport teams and parties</h3>
         </div>
 
-        <search class="w-full max-w-2xl mt-4 px-2 md:px-0">
+        <div class="w-full max-w-2xl mt-4 px-8 md:px-0">
             <form>
-                <input type="text" placeholder="Search Artist, Team, Venue" class="w-full px-6 py-3 md:py-4 rounded-full bg-transparent border border-white text-white placeholder-white/70 outline-none text-sm md:text-base">
+                <input type="text" placeholder="Search Artist, Team, Venue" class="w-full px-6 py-3 md:py-5 rounded-full bg-transparent border border-white text-white placeholder-white/70 outline-none text-sm md:text-base">
             </form>
-        </search>
+        </div>
         
         <div>
             <h2 class="text-lg md:text-2xl font-semibold">Dhaka, Bangladesh</h2>
         </div>
+    </div>
+</section>
 
+
+<main>
+
+    <div class="bg-[#161616] pb-16">
+        <h1 class="text-2xl font-extrabold text-[#F56529] px-4 md:px-20 py-12">| TODAY'S SCHEDULE</h1>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-20 items-start justify-items-center sm:justify-items-start">
+            {% for event in todays_events %}
+            <div class="w-full max-w-[320px] bg-white rounded-xl overflow-hidden shadow-md border border-gray-800 flex flex-col">
+                <div class="w-full h-36 overflow-hidden bg-gray-900">
+                    {% if event.image %}
+                        <img src="{{ event.image.url }}" alt="{{ event.title }}" class="w-full h-full object-cover">
+                    {% else %}
+                        <img src="{% static 'images/football.jpg' %}" alt="Default Image" class="w-full h-full object-cover">
+                    {% endif %}
+                </div>
+
+                <div class="p-3.5 bg-white text-black">
+                    <div class="flex gap-3 items-center">
+                        <div class="bg-[#2D3748] text-white py-2 px-2 text-center min-w-[55px] max-w-[55px] flex flex-col justify-center items-center rounded-lg shadow-sm">
+                            <span class="block text-xl font-black leading-none text-white">{{ event.date|date:"d" }}</span>
+                            <span class="block text-[9px] font-black tracking-widest text-gray-300 uppercase mt-1">{{ event.date|date:"M" }}</span>
+                        </div>
+
+                        <div class="flex-1 flex flex-col gap-2">
+                            <div>
+                                <h3 class="text-sm font-black text-black leading-tight tracking-wide line-clamp-1 uppercase">{{ event.title }}</h3>
+                            </div>
+                            <div>
+                                <a href="#" class="block w-full text-center py-1.5 bg-[#F56529] text-white text-[10px] font-black uppercase rounded hover:bg-opacity-90 transition-all tracking-wider">
+                                    GET TICKET
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-gray-400 text-sm col-span-full px-2">No schedules for today!</p>
+            {% endfor %}
+        </div>
     </div>
 
+
+    <section id="upcoming" class="scroll-mt-36 max-w-7xl mx-auto px-4 md:px-20 py-12 bg-white text-black">
+        
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8">
+            <div>
+                <h2 class="text-3xl font-black tracking-tight text-black uppercase">UPCOMING EVENTS</h2>
+                <p class="text-gray-500 text-sm mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <a href="#" class="px-5 py-2.5 border-2 border-[#DB3B24] text-[#DB3B24] rounded-md font-black text-xs uppercase hover:bg-[#DB3B24] hover:text-white transition-colors tracking-wider whitespace-nowrap">
+                SEE ALL UPCOMING EVENTS
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start justify-items-center sm:justify-items-start">
+            {% for event in events %}
+             <div class="w-full max-w-[350px] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 flex flex-col">
+                <div class="w-full h-48 overflow-hidden bg-gray-100">
+                    <img src="{% static 'images/football.jpg' %}" alt="Event Image" class="w-full h-full object-cover">
+                </div>
+
+                <div class="p-4 bg-white">
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-[#2D3748] text-white py-3 px-2.5 text-center min-w-[65px] max-w-[65px] flex flex-col justify-center items-center shadow-md rounded-lg">
+                            <span class="block text-2xl font-black tracking-tight leading-none text-white">17</span>
+                            <span class="block text-[10px] font-black tracking-widest text-gray-300 uppercase mt-2">SEP</span>
+                            <span class="block text-[10px] font-bold text-gray-400 mt-1">2020</span>
+                        </div>
+
+                        <div class="flex-1 flex flex-col gap-1.5">
+                            <div>
+                                <h3 class="text-base font-black text-black leading-tight tracking-wide line-clamp-1">{{ event.nam }}</h3>
+                                <p class="text-[11px] text-gray-400 font-medium mt-0.5 line-clamp-2">{{ event.description }}</p>
+                            </div>
+
+                            <div class="flex items-baseline gap-1 mt-1">
+                                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">PRICE:</span>
+                                <span class="text-sm font-black text-[#DB3B24]">${{ event.ticket }}</span>
+                            </div>
+                            
+                            <div class="mt-2">
+                                <a href="#" class="block w-full text-center py-2 bg-black text-white text-[11px] font-black uppercase rounded hover:bg-gray-800 transition-all tracking-widest">
+                                    GET TICKET
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+            {% endfor %}
+        </div>
+    </section> <section class="w-full bg-white text-black py-12 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 md:px-20">
+            <div class="mb-8 pl-1">
+                <h2 class="text-2xl font-extrabold text-black uppercase tracking-wide flex items-center gap-2">
+                    <span class="text-[#F56529]">I</span> EVENTS BY CATEGORIES
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start justify-items-center sm:justify-items-start">
+                <a href="#" class="relative block w-full max-w-[350px] h-52 rounded-none overflow-hidden group shadow-md border border-gray-100">
+                    <img src="{% static 'images/events_bg.jpg' %}" alt="Events" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-emerald-500/85 group-hover:bg-emerald-500/75 transition-colors"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="text-white text-xl font-black tracking-widest uppercase">EVENTS</span>
+                    </div>
+                </a>
+
+                <a href="#" class="relative block w-full max-w-[350px] h-52 rounded-none overflow-hidden group shadow-md border border-gray-100">
+                    <img src="{% static 'images/sports_bg.jpg' %}" alt="Sports" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-rose-600/85 group-hover:bg-rose-600/75 transition-colors"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="text-white text-xl font-black tracking-widest uppercase">SPORTS</span>
+                    </div>
+                </a>
+
+                <a href="#" class="relative block w-full max-w-[350px] h-52 rounded-none overflow-hidden group shadow-md border border-gray-100">
+                    <img src="{% static 'images/parties_bg.jpg' %}" alt="Parties" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-purple-600/85 group-hover:bg-purple-600/75 transition-colors"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="text-white text-xl font-black tracking-widest uppercase">PARTIES</span>
+                    </div>
+                </a>
+
+                <a href="#" class="relative block w-full max-w-[350px] h-52 rounded-none overflow-hidden group shadow-md border border-gray-100">
+                    <img src="{% static 'images/communities_bg.jpg' %}" alt="Communities" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-orange-500/85 group-hover:bg-orange-500/75 transition-colors"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="text-white text-xl font-black tracking-widest uppercase">COMMUNITIES</span>
+                    </div>
+                </a>
+
+                <a href="#" class="relative block w-full max-w-[350px] h-52 rounded-none overflow-hidden group shadow-md border border-gray-100">
+                    <img src="{% static 'images/theaters_bg.jpg' %}" alt="Theaters" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-blue-600/85 group-hover:bg-blue-600/75 transition-colors"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="text-white text-xl font-black tracking-widest uppercase">THEATERS</span>
+                    </div>
+                </a>
+
+                <a href="#" class="relative block w-full max-w-[350px] h-52 rounded-none overflow-hidden group shadow-md border border-gray-100">
+                    <img src="{% static 'images/concerts_bg.jpg' %}" alt="Concerts" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-pink-600/85 group-hover:bg-pink-600/75 transition-colors"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="text-white text-xl font-black tracking-widest uppercase">CONCERTS</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section class="relative w-full py-20 bg-cover bg-center bg-fixed mb-20 text-white flex items-center" style="background-image: url('{% static 'images/event.jpg' %}');">
+    
+    <div class="absolute inset-0 bg-black/85"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-20 w-full">
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+            
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-4xl md:text-5xl font-black tracking-tight text-white">
+                    {{ total_participants|default:"136,874" }}
+                </span>
+                <div class="w-12 h-[2px] bg-white/40 mt-1"></div>
+                <span class="text-xs md:text-sm font-bold uppercase tracking-widest text-gray-400 mt-2">
+                    TOTAL PARTICIPANTS
+                </span>
+            </div>
+
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-4xl md:text-5xl font-black tracking-tight text-white">
+                    {{ total_events|default:"598" }}
+                </span>
+                <div class="w-12 h-[2px] bg-white/40 mt-1"></div>
+                <span class="text-xs md:text-sm font-bold uppercase tracking-widest text-gray-400 mt-2">
+                    TOTAL EVENTS
+                </span>
+            </div>
+
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-4xl md:text-5xl font-black tracking-tight text-white">
+                    {{ upcoming_count|default:"16,173" }}
+                </span>
+                <div class="w-12 h-[2px] bg-white/40 mt-1"></div>
+                <span class="text-xs md:text-sm font-bold uppercase tracking-widest text-gray-400 mt-2">
+                    UPCOMING EVENTS
+                </span>
+            </div>
+
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-4xl md:text-5xl font-black tracking-tight text-white">
+                    {{ past_count|default:"120,103" }}
+                </span>
+                <div class="w-12 h-[2px] bg-white/40 mt-1"></div>
+                <span class="text-xs md:text-sm font-bold uppercase tracking-widest text-gray-400 mt-2">
+                    PAST EVENTS
+                </span>
+            </div>
+
+        </div>
+
+    </div>
 </section>
+
+
+
+
+</main>
+
+
+
+
+<footer id="contact-section" class="scroll-mt-12 bg-[#111111] text-gray-400 py-8 border-t border-white/5">
+    <div class="w-full mx-auto px-4 md:px-20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs md:text-sm">
+        
+        <div class="tracking-wide text-center md:text-left">
+            <p>&copy; 2026 <span class="text-[#F56529] font-black tracking-wider">EVENT.</span> All Rights Reserved.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center">
+            <div class="flex items-center gap-2 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-[#F56529]">
+                    <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" />
+                </svg>
+                <span>+8801772406799</span>
+            </div>
+            
+            <div class="flex items-center gap-2 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-[#F56529]">
+                    <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+                    <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
+                </svg>
+                <span>info@ashraf452b.com</span>
+            </div>
+        </div>
+
+    </div>
+</footer>
 
 <script>
     const menuBtn = document.getElementById('menu-btn');
@@ -89,60 +344,5 @@
     });
 </script>
 
-{% comment %} <a href="/all-events/" class="px-6 py-3 border border-[#DB3B24] text-[#DB3B24] rounded-full font-medium hover:bg-[#DB3B24] hover:text-white transition-colors whitespace-nowrap">
-            SEE ALL UPCOMING EVENTS
-        </a> {% endcomment %}
-
-<main>
-   <div class="bg-[#161616]">
-    <h1 class="text-2xl font-extrabold text-[#F56529] px-6 py-12">| TODAY'S SCHEDULE</h1>
-   </div>
-
-   <!--Up coming events-->
-   <div>
-        <h1 class="text-2xl font-extrabold text-black px-6 py-6">| UPCOMMING EVENTS</h1>
-        <P class="px-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sint, ad ratione illum unde et animi rerum voluptate inventore! Optio fuga blanditiis in consequuntur odit ducimus. Aut neque iste natus aperiam, ea, ipsam ad at inventore, eligendi cupiditate quia ipsa?</P>
-        <section class="max-w-7xl mx-auto px-4 md:px-20 py-16 bg-white text-black">
-    
-    <div class="flex justify-between items-end mb-10">
-        <div>
-            <h2 class="text-3xl font-black tracking-tight">UPCOMING EVENTS</h2>
-            <p class="text-gray-500 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        {% for event in events %}
-        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-            <div class="h-48 bg-gray-200 relative">
-                <div class="absolute top-4 left-4 bg-white text-black px-3 py-1 rounded-md text-center font-bold text-sm">
-                    17 <br> <span class="text-xs font-normal opacity-70">SEP</span>
-                </div>
-            </div>
-            
-            <div class="p-6">
-                <h3 class="text-xl font-bold line-clamp-1">{{ event.title }}</h3>
-                <p class="text-gray-500 text-sm mt-2 line-clamp-2">{{ event.description }}</p>
-                <div class="mt-4 pt-4 border-t border-gray-200 flex justify-between items-center text-sm font-semibold">
-                    <span class="text-gray-600">Dhaka, Bangladesh</span>
-                    <span class="text-[#DB3B24]">$5.00</span>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-
-    </div>
-
-</section>
-   </div>
-</main>
-
-
-
-<footer>
-    
-</footer>
 </body>
 </html>
