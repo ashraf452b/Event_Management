@@ -161,9 +161,15 @@
                         </div>
 
                         <div class="flex-1 flex flex-col gap-1.5">
-                            <div>
-                                <h3 class="text-base font-black text-black leading-tight tracking-wide line-clamp-1">{{ event.nam }}</h3>
+                            <div class="flex justify-between">
+                                <div>
+                                <h3 class="text-base font-black text-black leading-tight tracking-wide line-clamp-1">{{ event.nam }} </h3> 
                                 <p class="text-[11px] text-gray-400 font-medium mt-0.5 line-clamp-2">{{ event.description }}</p>
+                            </div>
+                            <div>
+                                <a href="{% static "" %}" class=" rounded-full">edit</a>
+                                <a href="{% static "" %}" class=" rounded-full">delete</a>
+                            </div>
                             </div>
 
                             <div class="flex items-baseline gap-1 mt-1">
@@ -256,7 +262,7 @@
             
             <div class="flex flex-col items-center gap-2">
                 <span class="text-4xl md:text-5xl font-black tracking-tight text-white">
-                    {{ total_participants|default:"136,874" }}
+                    {{ total_participants|default:"998" }}
                 </span>
                 <div class="w-12 h-[2px] bg-white/40 mt-1"></div>
                 <span class="text-xs md:text-sm font-bold uppercase tracking-widest text-gray-400 mt-2">
@@ -266,7 +272,7 @@
 
             <div class="flex flex-col items-center gap-2">
                 <span class="text-4xl md:text-5xl font-black tracking-tight text-white">
-                    {{ total_events|default:"598" }}
+                    {{ total_events }}
                 </span>
                 <div class="w-12 h-[2px] bg-white/40 mt-1"></div>
                 <span class="text-xs md:text-sm font-bold uppercase tracking-widest text-gray-400 mt-2">
@@ -276,7 +282,7 @@
 
             <div class="flex flex-col items-center gap-2">
                 <span class="text-4xl md:text-5xl font-black tracking-tight text-white">
-                    {{ upcoming_count|default:"16,173" }}
+                    {{ upcoming|default:"80" }}
                 </span>
                 <div class="w-12 h-[2px] bg-white/40 mt-1"></div>
                 <span class="text-xs md:text-sm font-bold uppercase tracking-widest text-gray-400 mt-2">
@@ -286,7 +292,7 @@
 
             <div class="flex flex-col items-center gap-2">
                 <span class="text-4xl md:text-5xl font-black tracking-tight text-white">
-                    {{ past_count|default:"120,103" }}
+                    {{ past|default:'0' }}
                 </span>
                 <div class="w-12 h-[2px] bg-white/40 mt-1"></div>
                 <span class="text-xs md:text-sm font-bold uppercase tracking-widest text-gray-400 mt-2">

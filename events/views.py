@@ -3,9 +3,40 @@ from django.http import HttpResponse
 from events.forms import CategoryModelForm,ParticipantModelForm,EventModelForm
 from django.contrib import messages
 from events.models import Event, Category, Participant
+from django.utils import timezone
+from django.shortcuts import render
+from django.db.models import Count
+from .models import Event, Participant
+from django.db.models import Count, Q
+from django.utils import timezone
 def dashboard(request):
-    event=Event.objects.all()
-    return render(request,'dashboard.html',{'events':event})
+
+    today=timezone.now().date()
+
+
+    """STATS ER MODDE COUNT  BER KORTE HOBE"""
+
+
+    participant_stats = Participant.objects.aggregate(total_participants_count=Count('id'))
+    total_participants = participant_stats['total_participants_count']
+    
+    allevent = Event.objects.order_by('date')
+    
+    if stats['total_events'] > 3:
+        event = allevent[:3]
+    else:
+        event = allevent
+        
+    context = {
+        'events': event,
+        'total_participants': total_participants,
+        'total_events': stats['total_events'],
+        'upcoming':stats['upcoming'],
+        'past':stats['past']
+    }
+    
+    return render(request, 'dashboard.html', context)
+
 
 def create_category(request):
     if request.method=='POST':
@@ -47,5 +78,6 @@ def create_event(request):
     return render(request,'create_event.html',context)
 
 
-def update(request):
+def update(request,id):
     pass
+#     obj=Event.objects.get(id=id)
